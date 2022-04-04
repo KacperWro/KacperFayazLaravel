@@ -32,7 +32,7 @@
         <div>
             <img src="{{ asset('images/' . $post->image_path) }}" alt="">
         </div>
-        <div>
+        <div style="word-wrap:break-word">
             <h2 class="text-gray-700 font-bold text-5xl pb-4">
                 {{ $post->title }}
             </h2>
@@ -41,7 +41,7 @@
                 By <span class="font-bold italic text-gray-800">{{ $post->user->name }}</span>, Created on {{ date('jS M Y', strtotime($post->updated_at)) }}
             </span>
 
-            <p class="text-xl text-gray-700 pt-8 pb-10 leading-8 font-light">
+            <p class="text-xl text-gray-700 pt-8 pb-10 leading-8 font-light" style="text-overflow:clip;">
                 {{ $post->description }}
             </p>
 
