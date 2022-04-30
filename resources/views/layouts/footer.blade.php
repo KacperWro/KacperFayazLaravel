@@ -88,18 +88,10 @@
         </div>
     </div>
 
+
+
 {{-- socials --}}
 
- {{-- <div class="flex justify-between items-center"> 
-     <button type="button" class="w-1/6 mx-1 p-2 font-bold text-white bg-blue-800 rounded focus:outline-none hover:bg-blue-900" style="font-size: 12px;">Facebook</button>
-      <button type="button" class="w-1/6 mx-1 p-2 font-bold text-white bg-red-600 rounded focus:outline-none hover:bg-red-800" style="font-size: 12px;">Google</button> 
-      <button type="button" class="w-1/6 mx-1 p-2 font-bold text-white bg-blue-800 rounded focus:outline-none hover:bg-blue-900" style="font-size: 12px;">LinkedIn</button> 
-      <button type="button" class="w-1/6 mx-1 p-2 font-bold text-white bg-blue-500 rounded focus:outline-none hover:bg-blue-900" style="font-size: 12px;">Twitter</button> 
-      <button type="button" class="w-1/6 mx-1 p-2 font-bold text-white bg-red-500 rounded focus:outline-none hover:bg-red-900" style="font-size: 12px;">Instagram</button> 
-      <button type="button" class="w-1/6 mx-1 p-2 font-bold text-white bg-green-800 rounded focus:outline-none hover:bg-green-900" style="font-size: 12px;">Tictok</button> 
-    </div> --}}
-
-{{-- socials 2 --}}
     <div class="flex flex-wrap justify-center gap-15">
          {{-- <div class="flex justify-between items-center">  --}}
         <button class="bg-blue-500 p-4 font-semibold text-white inline-flex items-center space-x-2 rounded hover:bg-blue-800">
