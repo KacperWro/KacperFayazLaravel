@@ -6,23 +6,23 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 
-class Country extends Model
+class Continent extends Model
 {
     use HasFactory;
     use Sluggable;
 
-    protected $fillable = ['slug', 'continent', 'countryName', 'capital', 'population', 'area', 'popDensity', 'history', 'culture', 'food', 'tourism', 'user_id', 'continentID', 'languageID'];
+    protected $fillable = ['continentName', 'slug'];
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Continent::class);
     }
 
     public function sluggable(): array
     {
         return [
             'slug' => [
-                'source' => 'countryName'
+                'source' => 'continentName'
             ]
         ];
     }

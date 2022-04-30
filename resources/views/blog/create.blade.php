@@ -30,16 +30,68 @@
 
         <input 
             type="text"
-            name="title"
-            placeholder="Title..."
+            name="countryName"
+            placeholder="Country Name..."
             class="bg-transparent block border-b-2 w-full h-20 text-6xl outline-none">
 
+        <input 
+            type="text"
+            name="continentID"
+            placeholder="continentID..."
+            class="bg-transparent block border-b-2 w-full h-20 text-6xl outline-none">
+
+        <input 
+            type="text"
+            name="languageID"
+            placeholder="languageID..."
+            class="bg-transparent block border-b-2 w-full h-20 text-6xl outline-none">
+        
+        <input 
+            type="text"
+            name="capital"
+            placeholder="capital..."
+            class="bg-transparent block border-b-2 w-full h-20 text-6xl outline-none">
+        
+        <input 
+        type="text"
+        name="population"
+        placeholder="population..."
+        class="bg-transparent block border-b-2 w-full h-20 text-6xl outline-none">
+
+        <input 
+        type="text"
+        name="area"
+        placeholder="area..."
+        class="bg-transparent block border-b-2 w-full h-20 text-6xl outline-none">
+
+        <input 
+        type="text"
+        name="popDensity"
+        placeholder="popDensity..."
+        class="bg-transparent block border-b-2 w-full h-20 text-6xl outline-none">
+
         <textarea 
-            name="description"
-            placeholder="Description..."
+            name="history"
+            placeholder="history..."
             class="py-20 bg-transparent block border-b-2 w-full h-60 text-xl outline-none"></textarea>
 
-        <div class="bg-grey-lighter pt-15">
+        <textarea 
+        name="culture"
+        placeholder="culture..."
+        class="py-20 bg-transparent block border-b-2 w-full h-60 text-xl outline-none"></textarea>
+
+        <textarea 
+        name="food"
+        placeholder="food..."
+        class="py-20 bg-transparent block border-b-2 w-full h-60 text-xl outline-none"></textarea>
+
+        <textarea 
+        name="tourism"
+        placeholder="tourism..."
+        class="py-20 bg-transparent block border-b-2 w-full h-60 text-xl outline-none"></textarea>
+
+
+        {{-- <div class="bg-grey-lighter pt-15">
             <label class="w-44 flex flex-col items-center px-2 py-3 bg-white-rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer">
                 <span class="mt-2 text-base leading-normal">
                     Select a file
@@ -49,7 +101,7 @@
                     name="image"
                     class="hidden">
             </label>
-        </div>
+        </div> --}}
 
         <button    
             type="submit"
