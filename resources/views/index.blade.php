@@ -43,9 +43,9 @@
 </div>
 
 {{-- Sidebar --}}
-
+<br>
 <aside class="w-64" aria-label="Sidebar">
-    <div class="overflow-y-auto py-4 px-3 bg-gray-50 rounded dark:bg-gray-800">
+    <div class="overflow-y-auto py-4 px-3 bg-gray-50 rounded dark:bg-gray-800 shadow-xl">
        <ul class="space-y-2">
 
         <li>
@@ -180,8 +180,8 @@
             </div>
         </div>
     </div> --}}
-
-    <div class="sm:grid grid-cols-2 gap-20 w-4/5 mx-auto py-15 border-b border-gray-200">
+<br>
+    <div class="sm:grid grid-cols-2 gap-20 w-4/5 mx-auto py-15 border-b border-gray-200 rounded-lg shadow-xl">
         <div>
             <img src="https://cdn.pixabay.com/photo/2014/05/03/01/03/laptop-336704_960_720.jpg" width="700" alt="">
         </div>
@@ -227,7 +227,7 @@
         </span>
     </div> --}}
 
-    <div class="text-center py-15">
+    <div class="text-center py-15 rounded-lg shadow-xl">
         <span class="uppercase text-s text-gray-400">
             Blog
         </span>
@@ -241,7 +241,9 @@
         </p>
     </div>
 
-    <div class="sm:grid grid-cols-2 w-4/5 m-auto">
+    <br>
+    <br>    
+    <div class="sm:grid grid-cols-2 w-4/5 m-auto rounded-lg shadow-xl">
         <div class="flex bg-yellow-700 text-gray-100 pt-10">
             <div class="m-auto pt-4 pb-16 sm:m-auto w-4/5 block">
                 <span class="uppercase text-xs">
