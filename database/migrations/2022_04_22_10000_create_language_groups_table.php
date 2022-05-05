@@ -13,11 +13,10 @@ class CreateLanguageGroupsTable extends Migration
      */
     public function up()
     {
-        Schema::create('languageGroups', function (Blueprint $table) {
+        Schema::create('language_groups', function (Blueprint $table) {
             $table->id();
             $table->string('slug');
             $table->string('langGroupName');
-            $table->unsignedBigInteger('langGroupID');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateLanguageGroupsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('languageGroups');
+        Schema::dropIfExists('language_groups');
     }
 }

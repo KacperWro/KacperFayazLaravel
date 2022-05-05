@@ -20,7 +20,7 @@ class CreateLanguagesTable extends Migration
             $table->longText('description');
             $table->unsignedBigInteger('speakersCount');
             $table->unsignedBigInteger('langGroupID');
-            $table->foreign('langGroupID')->references('id')->on('languageGroups');
+            $table->foreign('langGroupID')->references('id')->on('language_groups');
             $table->timestamps();
         });
     }
