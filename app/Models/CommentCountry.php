@@ -6,25 +6,23 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 
-// might be unnecessary later, so this php file might be deleted later
-
-class Continent extends Model
+class CommentCountry extends Model
 {
     use HasFactory;
     use Sluggable;
 
-    protected $fillable = ['continentName', 'slug'];
+    protected $fillable = ['commentContent', 'slug'];
 
     public function user()
     {
-        return $this->belongsTo(Continent::class);
+        return $this->belongsTo(User::class);
     }
 
     public function sluggable(): array
     {
         return [
             'slug' => [
-                'source' => 'continentName'
+                'source' => 'commentContent'
             ]
         ];
     }

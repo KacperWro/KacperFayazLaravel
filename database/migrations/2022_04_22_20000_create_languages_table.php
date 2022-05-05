@@ -17,6 +17,8 @@ class CreateLanguagesTable extends Migration
             $table->id();
             $table->string('slug');
             $table->string('languageName');
+            $table->longText('description');
+            $table->unsignedBigInteger('speakersCount');
             $table->unsignedBigInteger('langGroupID');
             $table->foreign('langGroupID')->references('id')->on('languageGroups');
             $table->timestamps();
