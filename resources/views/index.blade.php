@@ -6,7 +6,7 @@
 
 <div id="default-carousel" class="relative" data-carousel="slide" >
     <!-- Carousel wrapper -->
-    <div class="overflow-hidden relative h-56 rounded-lg sm:h-64 xl:h-80 2xl:h-96" style="border-radius: 0">
+    <div class="overflow-hidden relative h-56 rounded-lg sm:h-64 xl:h-80 2xl:h-96 shadow-xl" style="border-radius: 0">
          <!-- Item 1 -->
         <div class=" duration-700 ease-in-out" data-carousel-item>
             <span class="absolute top-1/2 left-1/2 text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 sm:text-3xl dark:text-gray-800">First Slide</span>
@@ -263,4 +263,24 @@
             <img src="https://cdn.pixabay.com/photo/2014/05/03/01/03/laptop-336704_960_720.jpg" alt="">
         </div>
     </div>
+
+<br>
+{{-- subscribe to newsletter --}}
+    <div class="container px-4">
+        <div class="font-sans bg-gradient-to-b from-red-100 to-gray-100 rounded-lg shadow-xl p-4 text-center">
+            <h2 class="font-bold break-normal text-xl md:text-3xl">Subscribe to Newsletter</h2>
+            <h3 class="font-bold break-normal text-gray-600 text-sm md:text-base">Get the latest posts delivered right to your inbox</h3>
+            <div class="w-full text-center pt-4">
+                <form action="/register">
+                    <div class="max-w-xl mx-auto p-1 pr-0 flex flex-wrap items-center">
+                        <input type="email" placeholder="youremail@example.com" class="flex-1 mt-4 appearance-none border border-gray-400 rounded shadow-md p-3 text-gray-600 mr-2 focus:outline-none">
+                        <button type="submit" class="flex-1 mt-4 block md:inline-block appearance-none bg-blue-500 text-white text-base font-semibold tracking-wider uppercase py-4 rounded shadow hover:bg-indigo-700">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
 @endsection
