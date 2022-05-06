@@ -147,15 +147,29 @@
 
     <br>
     <br> 
+
+{{-- animation --}}
+    <div class="flex justify-center items-center">
+        <div class="spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0 text-blue-600" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+
+        <div class="spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0 text-red-600" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+
+      </div>
     
+      <br>
+      <br> 
 {{-- Testimonials carousel real --}}
     
     <div id="carouselExampleCaptions" class="carousel slide relative carousel-dark rounded-lg shadow-xl" data-bs-ride="carousel">
         <div class="carousel-inner relative w-full overflow-hidden py-10 mb-5">
           <div class="carousel-item active relative float-left w-full text-center">
             <p class="text-xl italic mx-auto text-gray-700 max-w-4xl">
-              "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet
-              numquam iure provident voluptate esse quasi, voluptas nostrum quisquam!"
+              "This is one of the best blogs ever. I was able to write all about the country I 
+              wanted to and it's culture! I also found all the information I was looking for."
             </p>
             <div class="mt-12 mb-6 flex justify-center">
               <img
@@ -168,9 +182,8 @@
           </div>
           <div class="carousel-item relative float-left w-full text-center">
             <p class="text-xl italic mx-auto text-gray-700 max-w-4xl">
-              "Neque cupiditate assumenda in maiores repudiandae mollitia adipisci maiores
-              repudiandae mollitia consectetur adipisicing architecto elit sed adipiscing
-              elit."
+              "I find this blog very easy to navigate, the buttons are so handy that I never had to look
+              for help or any sort of assistance"
             </p>
             <div class="mt-12 mb-6 flex justify-center">
               <img
@@ -183,9 +196,8 @@
           </div>
           <div class="carousel-item relative float-left w-full text-center">
             <p class="text-xl italic mx-auto text-gray-700 max-w-4xl">
-              "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-              dolore eu fugiat nulla pariatur est laborum neque cupiditate assumenda in
-              maiores."
+              "The best thing about this blog is the overall layout, it's very interactive and engaging that 
+              its hard to keep yourself away from it."
             </p>
             <div class="mt-12 mb-6 flex justify-center">
               <img
