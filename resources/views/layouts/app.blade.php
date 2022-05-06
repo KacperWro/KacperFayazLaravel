@@ -14,6 +14,12 @@
     
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    
+    <script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.2/dist/flowbite.min.css" />
     <script src="https://unpkg.com/flowbite@1.4.2/dist/flowbite.js"></script>
 </head>
@@ -27,19 +33,19 @@
                     </a>
                 </div>
                 <nav class="space-x-4 text-gray-300 text-sm sm:text-base">
-                    <a class="no-underline hover:underline" href="/">Home</a>
-                    <a class="no-underline hover:underline" href="/blog">Country Posts</a>
-                    <a class="no-underline hover:underline" href="/langPosts">Language Posts</a>
+                    <a class="no-underline hover:underline font-bold" href="/">Home</a>
+                    <a class="no-underline hover:underline font-bold" href="/blog">Country Posts</a>
+                    <a class="no-underline hover:underline font-bold" href="/langPosts">Language Posts</a>
                     @guest
-                        <a class="no-underline hover:underline" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="no-underline hover:underline font-bold" href="{{ route('login') }}">{{ __('Login') }}</a>
                         @if (Route::has('register'))
-                            <a class="no-underline hover:underline" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="no-underline hover:underline font-bold" href="{{ route('register') }}">{{ __('Register') }}</a>
                         @endif
                     @else
                         <span>{{ Auth::user()->name }}</span>
 
                         <a href="{{ route('logout') }}"
-                           class="no-underline hover:underline"
+                           class="no-underline hover:underline font-bold"
                            onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
@@ -58,5 +64,6 @@
             @include('layouts.footer')
         </div>
     </div>
+  
 </body>
 </html>

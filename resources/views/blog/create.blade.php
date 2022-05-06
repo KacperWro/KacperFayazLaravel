@@ -7,6 +7,7 @@
 
 <div class="w-4/5 m-auto text-left">
 
+    {{-- BACK TO HOME button --}}
     <p class="text-base md:text-sm text-red-900 font-bold pt-5 pl-5">&lt; 
     <a href="/" class="text-base md:text-sm text-red-900 font-bold no-underline hover:underline">BACK TO HOME</a></p>
         
