@@ -20,7 +20,7 @@ class LanguagesController extends Controller
      */
     public function index()
     {
-        return view('blog.index')
+        return view('langPosts.index')
             ->with('languages', Language::orderBy('updated_at', 'DESC')->get());
     }
 
@@ -31,7 +31,7 @@ class LanguagesController extends Controller
      */
     public function create()
     {
-        return view('blog.create');
+        return view('langPosts.create');
     }
 
     /**
@@ -66,7 +66,7 @@ class LanguagesController extends Controller
             'user_id' => auth()->user()->id
         ]);
 
-        return redirect('/blog')
+        return redirect('/langPosts')
             ->with('message', 'New language has been added');
     }
 
@@ -78,7 +78,7 @@ class LanguagesController extends Controller
      */
     public function show($slug)
     {
-        return view('blog.show')
+        return view('langPosts.show')
             ->with('language', Language::where('slug', $slug)->first());
     }
 
@@ -90,7 +90,7 @@ class LanguagesController extends Controller
      */
     public function edit($slug)
     {
-        return view('blog.edit')
+        return view('langPosts.edit')
             ->with('language', Language::where('slug', $slug)->first());
     }
 
@@ -121,7 +121,7 @@ class LanguagesController extends Controller
                 'user_id' => auth()->user()->id
             ]);
 
-        return redirect('/blog')
+        return redirect('/langPosts')
             ->with('message', 'Language has been updated');
     }
 
@@ -136,7 +136,7 @@ class LanguagesController extends Controller
         $language = Language::where('slug', $slug);
         $language->delete();
 
-        return redirect('/blog')
+        return redirect('/langPosts')
             ->with('message', 'Language has been successfully deleted');
     }
 }

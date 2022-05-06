@@ -26,4 +26,10 @@ class Country extends Model
             ]
         ];
     }
+
+    public function post()
+    {
+        return $this->hasMany(CommentCountry::class);
+    }
+
 }

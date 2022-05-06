@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Country;
+use App\Models\CommentCountry;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class CountriesController extends Controller
@@ -20,6 +21,9 @@ class CountriesController extends Controller
      */
     public function index()
     {
+
+
+        
         return view('blog.index')
             ->with('countries', Country::orderBy('updated_at', 'DESC')->get());
     }

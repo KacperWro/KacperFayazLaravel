@@ -15,7 +15,7 @@ class CommentLanguage extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Language::class);
     }
 
     public function sluggable(): array

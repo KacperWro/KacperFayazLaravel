@@ -13,13 +13,13 @@ class CreateCommentsCountries extends Migration
      */
     public function up()
     {
-        Schema::create('commentsCountries', function (Blueprint $table) {
+        Schema::create('comment_Countries', function (Blueprint $table) {
             $table->increments('id');
             $table->longText('commentContent');
-            $table->unsignedBigInteger('countryID');
+            $table->unsignedBigInteger('country_id');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('countryID')->references('id')->on('countries');
+            $table->foreign('country_id')->references('id')->on('countries');
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreateCommentsCountries extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('commentsCountries');
+        Schema::dropIfExists('comment_Countries');
     }
 }

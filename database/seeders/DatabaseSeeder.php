@@ -29,7 +29,10 @@ class DatabaseSeeder extends Seeder
         \App\Models\LanguageGroup::create(['langGroupName' => 'Romance', 'id' => '3']);
         \App\Models\LanguageGroup::create(['langGroupName' => 'Hellenic', 'id' => '4']);
         \App\Models\LanguageGroup::create(['langGroupName' => 'Celtic', 'id' => '5']);
-        
+
+        //Languages Sample Data
+        // \App\Models\Language::create(['languageName' => 'Polish', 'id' => '1', 'speakersCount' => '4000000', 'langGroupID' => '1', 'description' => 'It is a West Slavic language']);
+        // \App\Models\Language::create(['languageName' => 'German', 'id' => '2', 'speakersCount' => '7000000', 'langGroupID' => '2', 'description' => 'It is a Germanic language']);
 
 
     }

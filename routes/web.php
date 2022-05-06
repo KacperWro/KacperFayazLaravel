@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\CountriesController;
+use App\Http\Controllers\LanguagesController;
+use App\Http\Controllers\CommentCountryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +23,7 @@ Route::get('/', [PagesController::class, 'index']);
 // Route::resource('/blog', PostsController::class);
 
 Route::resource('/blog', CountriesController::class);
+Route::resource('/langPosts', LanguagesController::class);
 
 Auth::routes();
 

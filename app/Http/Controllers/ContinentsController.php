@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\CommentCountry;
+use App\Models\Continent;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
-class CommentCountryController extends Controller
+class ContinentsController extends Controller
 {
  
     public function __construct()
@@ -21,7 +21,7 @@ class CommentCountryController extends Controller
     public function index()
     {
         return view('blog.index')
-            ->with('commentsCountries', CommentCountry::orderBy('updated_at', 'DESC')->get());
+            ->with('continents', Continent::orderBy('updated_at', 'DESC')->get());
     }
 
     /**
@@ -43,7 +43,7 @@ class CommentCountryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'commentContent' => 'required',
+            'continentName' => 'required',
 
             // ,'image' => 'required|mimes:jpg,png,jpeg|max:5048'
         ]);
@@ -52,15 +52,15 @@ class CommentCountryController extends Controller
 
         // $request->image->move(public_path('images'), $newImageName);
 
-        CommentCountry::create([
-            'commentContent' => $request->input('commentContent'),
+        Continent::create([
+            'continentName' => $request->input('continentName'),
+            'slug' => SlugService::createSlug(Continent::class, 'slug', $request->continentName),
             // 'image_path' => $newImageName,
-            'slug' => SlugService::createSlug(CommentCountry::class, 'slug', $request->commentContent),
-            'countryID' => auth()->user()->id
+            'user_id' => auth()->user()->id
         ]);
 
         return redirect('/blog')
-            ->with('message', 'New comment has been added');
+            ->with('message', 'New continent has been added');
     }
 
     /**
@@ -72,7 +72,7 @@ class CommentCountryController extends Controller
     public function show($slug)
     {
         return view('blog.show')
-            ->with('commentCountry', CommentCountry::where('slug', $slug)->first());
+            ->with('continent', Continent::where('slug', $slug)->first());
     }
 
     /**
@@ -84,7 +84,7 @@ class CommentCountryController extends Controller
     public function edit($slug)
     {
         return view('blog.edit')
-            ->with('commentCountry', CommentCountry::where('slug', $slug)->first());
+            ->with('continent', Continent::where('slug', $slug)->first());
     }
 
     /**
@@ -97,19 +97,20 @@ class CommentCountryController extends Controller
     public function update(Request $request, $slug)
     {
         $request->validate([
-            'commentCountry' => 'required',
+            'continentName' => 'required',
             
         ]);
 
-        CommentCountry::where('slug', $slug)
+        Continent::where('slug', $slug)
             ->update([
-                'commentCountry' => $request->input('commentCountry'),
-                'slug' => SlugService::createSlug(CommentCountry::class, 'slug', $request->commentContent),
+                'continentName' => $request->input('continentName'),
+                'slug' => SlugService::createSlug(Continent::class, 'slug', $request->continentName),
+                // 'image_path' => $newImageName,
                 'user_id' => auth()->user()->id
             ]);
 
         return redirect('/blog')
-            ->with('message', 'Comment has been updated');
+            ->with('message', 'Continent has been updated');
     }
 
     /**
@@ -120,11 +121,11 @@ class CommentCountryController extends Controller
      */
     public function destroy($slug)
     {
-        $commentCountry = CommentCountry::where('slug', $slug);
-        $commentCountry->delete();
+        $continent = Continent::where('slug', $slug);
+        $continent->delete();
 
         return redirect('/blog')
-            ->with('message', 'Comment has been successfully deleted');
+            ->with('message', 'Continent has been successfully deleted');
     }
 }
 
