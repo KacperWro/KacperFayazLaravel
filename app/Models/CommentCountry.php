@@ -15,7 +15,7 @@ class CommentCountry extends Model
 
     public function user()
     {
-        return $this->belongsTo(Country::class);
+        return $this->belongsTo(User::class);
     }
 
     public function sluggable(): array
