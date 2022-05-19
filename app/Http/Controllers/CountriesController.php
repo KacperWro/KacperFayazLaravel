@@ -21,11 +21,20 @@ class CountriesController extends Controller
      */
     public function index()
     {
-
-
-        
         return view('blog.index')
             ->with('countries', Country::orderBy('updated_at', 'DESC')->get());
+    }
+
+      /**
+     * Display a listing of the resource.
+     *
+     * @param  int  $currentContinentId
+     * @return \Illuminate\Http\Response
+     */
+    public function displaySome($currentContinentId)
+    {
+        return view('blog.displaySome')
+            ->with('countries', Country::where('continentID', $currentContinentId)->get());
     }
 
     /**
@@ -59,12 +68,12 @@ class CountriesController extends Controller
             'food' => 'required',
             'tourism' => 'required',
 
-            // ,'image' => 'required|mimes:jpg,png,jpeg|max:5048'
+            'image' => 'required|mimes:jpg,png,jpeg|max:5048'
         ]);
 
-        // $newImageName = uniqid() . '-' . $request->title . '.' . $request->image->extension();
+        $newImageName = uniqid() . '-' . $request->title . '.' . $request->image->extension();
 
-        // $request->image->move(public_path('images'), $newImageName);
+        $request->image->move(public_path('images'), $newImageName);
 
         Country::create([
             'continentID' => $request->input('continentID'),
@@ -79,7 +88,7 @@ class CountriesController extends Controller
             'food' => $request->input('food'),
             'tourism' => $request->input('tourism'),
             'slug' => SlugService::createSlug(Country::class, 'slug', $request->countryName),
-            // 'image_path' => $newImageName,
+            'image_path' => $newImageName,
             'user_id' => auth()->user()->id
         ]);
 

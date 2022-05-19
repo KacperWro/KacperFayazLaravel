@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\CommentCountry;
+use App\Models\LanguageGroup;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
-class CommentCountryController extends Controller
+class ContinentsController extends Controller
 {
  
     public function __construct()
@@ -20,8 +20,8 @@ class CommentCountryController extends Controller
      */
     public function index()
     {
-        return view('blog.index')
-            ->with('commentsCountries', CommentCountry::orderBy('updated_at', 'DESC')->get());
+        return view('layouts.app')
+            ->with('langGroups', LanguageGroup::orderBy('updated_at', 'DESC')->get());
     }
 
     /**
@@ -43,8 +43,7 @@ class CommentCountryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'commentContent' => 'required',
-            'countryID' => 'required',
+            'langGroupName' => 'required',
 
             // ,'image' => 'required|mimes:jpg,png,jpeg|max:5048'
         ]);
@@ -53,15 +52,15 @@ class CommentCountryController extends Controller
 
         // $request->image->move(public_path('images'), $newImageName);
 
-        CommentCountry::create([
-            'commentContent' => $request->input('commentContent'),
+        LanguageGroup::create([
+            'langGroupName' => $request->input('langGroupName'),
+            'slug' => SlugService::createSlug(LanguageGroup::class, 'slug', $request->langGroupName),
             // 'image_path' => $newImageName,
-            'slug' => SlugService::createSlug(CommentCountry::class, 'slug', $request->commentContent),
-            'countryID' => $request->input('countryID')
+            'user_id' => auth()->user()->id
         ]);
 
         return redirect('/blog')
-            ->with('message', 'New comment has been added');
+            ->with('message', 'New language group has been added');
     }
 
     /**
@@ -70,11 +69,11 @@ class CommentCountryController extends Controller
      * @param  string  $slug
      * @return \Illuminate\Http\Response
      */
-    // public function show($slug)
-    // {
-    //     return view('blog.show')
-    //         ->with('commentCountry', CommentCountry::where('slug', $slug)->first());
-    // }
+    public function show($slug)
+    {
+        return view('layouts.show')
+            ->with('langGroup', LanguageGroup::where('slug', $slug)->first());
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -85,7 +84,7 @@ class CommentCountryController extends Controller
     public function edit($slug)
     {
         return view('blog.edit')
-            ->with('commentContent', CommentCountry::where('slug', $slug)->first());
+            ->with('langGroup', LanguageGroup::where('slug', $slug)->first());
     }
 
     /**
@@ -98,20 +97,20 @@ class CommentCountryController extends Controller
     public function update(Request $request, $slug)
     {
         $request->validate([
-            'commentContent' => 'required',
-            'countryID' => 'required',
+            'langGroupName' => 'required',
             
         ]);
 
-        CommentCountry::where('slug', $slug)
+        LanguageGroup::where('slug', $slug)
             ->update([
-                'commentContent' => $request->input('commentContent'),
-                'slug' => SlugService::createSlug(CommentCountry::class, 'slug', $request->commentContent),
-                'countryID' => $request->input('countryID')
+                'langGroupName' => $request->input('langGroupName'),
+                'slug' => SlugService::createSlug(LanguageGroup::class, 'slug', $request->langGroupName),
+                // 'image_path' => $newImageName,
+                'user_id' => auth()->user()->id
             ]);
 
         return redirect('/blog')
-            ->with('message', 'Comment has been updated');
+            ->with('message', 'Language group has been updated');
     }
 
     /**
@@ -122,11 +121,11 @@ class CommentCountryController extends Controller
      */
     public function destroy($slug)
     {
-        $commentCountry = CommentCountry::where('slug', $slug);
-        $commentCountry->delete();
+        $languageGroup = LanguageGroup::where('slug', $slug);
+        $languageGroup->delete();
 
         return redirect('/blog')
-            ->with('message', 'Comment has been successfully deleted');
+            ->with('message', 'Language group has been successfully deleted');
     }
 }
 

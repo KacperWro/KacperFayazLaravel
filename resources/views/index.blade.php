@@ -40,12 +40,80 @@
         </span>
 
         <h2 class="text-4xl font-bold py-10">
-            Recent Posts
+            Most Recent Posts
         </h2>
 
-        <p class="m-auto w-4/5 text-gray-500">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque exercitationem saepe enim veritatis, eos temporibus quaerat facere consectetur qui.
-        </p>
+        @if (true)
+        <?php $counter = 0; ?>
+
+          @foreach ($allCountries as $country)
+            @if($counter < 1)
+              <?php $counter = $counter + 1; ?>
+          
+              <div class="sm:grid grid-cols-2 gap-20 w-4/5 mx-auto py-15 border-b border-gray-200" style="width:100%;;width:48%;display:inline-block;float:left;margin-left:1em;">
+                
+                <div style="word-wrap:break-word">
+                    <h2 class="text-gray-700 font-bold text-5xl pb-4">
+                        {{ $country->countryName }}
+                    </h2>
+        
+                    <span class="text-gray-500">
+                        By <span class="font-bold italic text-gray-800">{{ $country->user->name }}</span>, Created on {{ date('jS M Y', strtotime($country->updated_at)) }}
+                    </span>
+        
+                    <p class="text-xl text-gray-700 pt-8 pb-10 leading-8 font-light" style="text-overflow:clip;">
+                        {{-- {{ $country->description }} --}}
+                    </p>
+        
+                    <a href="/blog/{{ $country->slug }}"class="uppercase bg-blue-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">
+                        Keep Reading 
+                    </a>
+        
+                </div>
+
+              
+            </div> 
+
+              @endif
+            
+          @endforeach
+            <?php $counter = 0; ?>
+          @foreach ($allLanguages as $language)
+            @if($counter < 1)
+              <?php $counter = $counter + 1; ?>
+          
+            <div class="sm:grid grid-cols-2 gap-20 w-4/5 mx-auto py-15 border-b border-gray-200" style="width:100%;width:48%;display:inline-block;">
+                
+              <div style="word-wrap:break-word">
+                  <h2 class="text-gray-700 font-bold text-5xl pb-4">
+                      {{ $language->languageName }}
+                  </h2>
+      
+                  <span class="text-gray-500">
+                      By <span class="font-bold italic text-gray-800">{{ $language->user->name }}</span>, Created on {{ date('jS M Y', strtotime($language->updated_at)) }}
+                  </span>
+      
+                  <p class="text-xl text-gray-700 pt-8 pb-10 leading-8 font-light" style="text-overflow:clip;">
+                      {{-- {{ $language->description }} --}}
+                  </p>
+      
+                  <a href="/langPosts/{{ $language->slug }}"class="uppercase bg-blue-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">
+                      Keep Reading 
+                  </a>
+      
+              </div>
+
+            
+          </div> 
+
+
+              @endif
+            
+          @endforeach
+          
+        @endif
+          
+       
     </div>
 
     <br>
@@ -134,12 +202,13 @@
 
     <br>
 {{-- subscribe to newsletter --}}
-    <div class="container px-4">
+    <div class="container px-4" style="margin-left:5em;">
         <div class="font-sans bg-gradient-to-b from-red-100 to-gray-100 rounded-lg shadow-xl p-4 text-center">
             <h2 class="font-bold break-normal text-xl md:text-3xl">Subscribe to Newsletter</h2>
+
             <h3 class="font-bold break-normal text-gray-600 text-sm md:text-base">Get the latest posts delivered right to your inbox</h3>
             <div class="w-full text-center pt-4">
-                <form action="/register">
+                <form action="http://localhost:8000/sendhtmlemail">
                     <div class="max-w-xl mx-auto p-1 pr-0 flex flex-wrap items-center">
                         <input type="email" placeholder="youremail@example.com" class="flex-1 mt-4 appearance-none border border-gray-400 rounded shadow-md p-3 text-gray-600 mr-2 focus:outline-none">
                         <button type="submit" class="flex-1 mt-4 block md:inline-block appearance-none bg-blue-500 text-white text-base font-semibold tracking-wider uppercase py-4 rounded shadow hover:bg-indigo-700">Register</button>

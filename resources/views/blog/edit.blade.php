@@ -39,21 +39,45 @@
         
         <br>
 
-    <h3 class="text-2xl font-semibold">Continent ID:</h3>
-   
-    <input 
-        type="text"
-        name="continentID"
-        value="{{ $country->continentID }}"
-        class="bg-transparent block border-b-1 w-full h-10 text-2xl outline-none">
+    <h3 class="text-2xl font-semibold">Continent</h3>
+
+        <select id="continentID" name="continentID" class="bg-transparent block border-b-1 w-full h-10 text-2xl outline-none">
+            @foreach ($continents as $continent)
+
+            @if ($country->continentID === $continent->id)
+                <option value={{ $continent->id }} selected="selected">
+                    {{ $continent->continentName }}
+                </option>
+            @else
+                <option value={{ $continent->id }}>
+                    {{ $continent->continentName }}
+                </option>
+            @endif
+                
+                
+            @endforeach
+        </select>
 
         <br>
-    <h3 class="text-2xl font-semibold">Language ID:</h3>
-    <input 
-        type="text"
-        name="languageID"
-        value="{{ $country->languageID }}"
-        class="bg-transparent block border-b-1 w-full h-10 text-2xl outline-none">
+    <h3 class="text-2xl font-semibold">Language</h3>
+    
+
+        <select id="languageID" name="languageID" class="bg-transparent block border-b-1 w-full h-10 text-2xl outline-none">
+            @foreach ($allLanguages as $language)
+
+            @if ($country->languageID === $language->id)
+                <option value={{ $language->id }} selected>
+                    {{ $language->languageName }}
+                </option>
+            @else
+                <option value={{ $language->id }}>
+                    {{ $language->languageName }}
+                </option>
+            @endif
+                
+                
+            @endforeach
+        </select>
         
         <br>
         <h3 class="text-2xl font-semibold">Capital Name:</h3>

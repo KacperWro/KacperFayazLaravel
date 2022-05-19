@@ -11,7 +11,7 @@ class Country extends Model
     use HasFactory;
     use Sluggable;
 
-    protected $fillable = ['slug', 'continent', 'countryName', 'capital', 'population', 'area', 'popDensity', 'history', 'culture', 'food', 'tourism', 'user_id', 'continentID', 'languageID'];
+    protected $fillable = ['slug', 'image_path', 'continent', 'countryName', 'capital', 'population', 'area', 'popDensity', 'history', 'culture', 'food', 'tourism', 'user_id', 'continentID', 'languageID'];
 
     public function user()
     {

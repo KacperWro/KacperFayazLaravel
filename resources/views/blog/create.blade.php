@@ -38,7 +38,7 @@
         enctype="multipart/form-data">
         @csrf
 
-        <h3 class="text-2xl font-semibold">Country Name:</h3>
+        <h3 class="text-2xl font-semibold">Country Name</h3>
         <input 
             type="text"
             name="countryName"
@@ -47,23 +47,34 @@
             
             <br>
 
-        <h3 class="text-2xl font-semibold">Continent ID:</h3>
-        <input 
-            type="text"
-            name="continentID"
-            placeholder="Please type in Continent ID here..."
-            class="bg-transparent block border-b-1 w-full h-10 text-2xl outline-none">
+        <h3 class="text-2xl font-semibold">Continent</h3>
+        
+
+            <select id="continentID" name="continentID" class="bg-transparent block border-b-1 w-full h-10 text-2xl outline-none">
+                @foreach ($continents as $continent)
+
+                <option value={{ $continent->id }}>
+                    {{ $continent->continentName }}
+                </option>
+                    
+                @endforeach
+            </select>
 
             <br>
-        <h3 class="text-2xl font-semibold">Language ID:</h3>
-        <input 
-            type="text"
-            name="languageID"
-            placeholder="Please type in Language ID here..."
-            class="bg-transparent block border-b-1 w-full h-10 text-2xl outline-none">
+        <h3 class="text-2xl font-semibold">Language</h3>
+
+            <select id="languageID" name="languageID" class="bg-transparent block border-b-1 w-full h-10 text-2xl outline-none">
+                @foreach ($allLanguages as $language)
+
+                <option value={{ $language->id }}>
+                    {{ $language->languageName }}
+                </option>
+                    
+                @endforeach
+            </select>
             
             <br>
-            <h3 class="text-2xl font-semibold">Capital Name:</h3>
+            <h3 class="text-2xl font-semibold">Capital Name</h3>
         <input 
             type="text"
             name="capital"
@@ -71,7 +82,7 @@
             class="bg-transparent block border-b-1 w-full h-10 text-2xl outline-none">
         
             <br>
-            <h3 class="text-2xl font-semibold">Population:</h3>
+            <h3 class="text-2xl font-semibold">Population</h3>
         <input 
         type="text"
         name="population"
@@ -80,7 +91,7 @@
 
         <br>
 
-        <h3 class="text-2xl font-semibold">Country Area in KmSq:</h3>
+        <h3 class="text-2xl font-semibold">Country Area in KmSq</h3>
         <input 
         type="text"
         name="area"
@@ -89,7 +100,7 @@
 
         <br>
 
-        <h3 class="text-2xl font-semibold">Country's Population Density:</h3>
+        <h3 class="text-2xl font-semibold">Country's Population Density</h3>
         <input 
         type="text"
         name="popDensity"
@@ -98,7 +109,7 @@
 
         <br>
 
-        <h3 class="text-2xl font-semibold">History:</h3>
+        <h3 class="text-2xl font-semibold">History</h3>
         <textarea 
             name="history"
             placeholder="Please type in History of country here..."
@@ -106,7 +117,7 @@
 
             <br>
 
-            <h3 class="text-2xl font-semibold">Culture:</h3>     
+            <h3 class="text-2xl font-semibold">Culture</h3>     
         <textarea 
         name="culture"
         placeholder="Please type in Culture here..."
@@ -114,7 +125,7 @@
 
         <br>
 
-        <h3 class="text-2xl font-semibold">Food:</h3>
+        <h3 class="text-2xl font-semibold">Food</h3>
         <textarea 
         name="food"
         placeholder="Please type in about Food here..."
@@ -122,7 +133,7 @@
 
         <br>
 
-        <h3 class="text-2xl font-semibold">Tourism:</h3>
+        <h3 class="text-2xl font-semibold">Tourism</h3>
         <textarea 
         name="tourism"
         placeholder="Please type in about Tourism here..."
